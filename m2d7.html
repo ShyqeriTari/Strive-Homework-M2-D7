@@ -510,6 +510,7 @@ function removeIcon() {
 
 function createBlog() {
     let blog = document.createElement("div")
+    blog.classList.add("blog-post")
     blog.style.margin = "20px"
     blog.innerHTML= "<h2>I'm the new blog</h2>"
     
@@ -532,8 +533,29 @@ function addBlog() {
 
 /*
           EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
+*/
 
-          
+
+function lastBlog() {
+    let blog = document.querySelectorAll(".blog-post")
+    let x = blog.length
+    blog[x-1].remove()
+}
+
+          function removeBlog() {
+    let body = document.querySelector("body")
+    let button = document.createElement("button")
+    let aside = document.querySelector("aside")
+    button.innerText = "Older button to remove Blog post"
+    button.style.margin = "20px"
+    button.addEventListener("click", lastBlog)
+    aside.parentNode.insertBefore(button, aside)
+}
+
+
+
+
+/*
           EX20) Write an alert with the name of the author every time the user hover with the mouse over an author name 
 */
 
@@ -550,6 +572,7 @@ removeLinks()
 colSize()
 removeIcon()
 addBlog()
+removeBlog()
 }
     </script>
 
