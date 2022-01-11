@@ -55,7 +55,7 @@
             }
         }
 
-        div > h1 {
+        header + div + div > div > h1 {
             background-color: aqua;
         }
 
@@ -63,11 +63,31 @@
             background-color: crimson;
         }
 
-        div > p > a {
+        div > h1 + p + p > a {
             background-color: darkcyan;
         }
+        main > div > div > h3 + div {
+            background-color: rgb(46, 48, 179);
+        }
 
+        nav > a:nth-child(2n +1) {
+            background-color: lightcoral;
+        }
+
+        main > div > div > h3 + div + div + div{
+            background-color: rgb(46, 179, 117);
+        }
+
+        aside > div:nth-of-type(2) ol li {
         
+            background-color: lightskyblue;
+        }
+
+        main > div > div > div:nth-of-type(2) > h2 + p > a {
+            background-color: lime;
+        }
+        
+
     </style>
     <link href="./Blog Template · Bootstrap_files/css" rel="stylesheet">
 </head>
