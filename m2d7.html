@@ -95,6 +95,10 @@
             background-color: rgb(0, 0, 0);
         }
 
+        .changeBack{
+            background-color: royalblue!important;
+        }
+
     </style>
     <link href="./Blog Template · Bootstrap_files/css" rel="stylesheet">
 </head>
@@ -139,7 +143,7 @@
             </nav>
         </div>
 
-        <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+        <div id="jumbotron" class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
             <div class="col-md-6 px-0">
                 <h1 class="display-4 font-italic">
                     Title of a longer featured blog post
@@ -424,16 +428,101 @@
         /*
           JS Exercises
           EX11) Write a function to add a new link into the navbar
+*/ 
+function addLink() {
+    let nav = document.querySelector("nav")
+    let link = document.createElement("a")
+    link.innerText= "New Link"
+    nav.appendChild(link)
+}
+
+
+
+
+/*
           EX12) Write a function to change the color of the main title
+*/
+function changeColor(){
+let mainTitle = document.querySelector("h1")
+mainTitle.style.color = "red"
+}
+
+
+/*
           EX13) Write a function to change the background of the jumbotron
-          EX14) Write a function to remove all the links under "Elsewhere"
+*/
+
+function changeBack() {
+    let jumbotron = document.getElementById("jumbotron")
+    jumbotron.style.backgroundColor="blue"
+}
+
+
+
+
+/*
+EX14) Write a function to remove all the links under "Elsewhere"
+*/
+
+function removeLinks() {
+    let ol = document.getElementsByTagName("ol")
+    ol[2].innerHTML = ""
+}
+
+
+
+
+/*
           EX15) Write a function to change the column size for heading in jumbotron
-          EX16) Write a function to remove the "Search" magnifying glass icon
+*/
+
+function colSize() {
+
+    let heading = document.getElementsByTagName("h1")
+    heading[0].style.width = "10%"
+    
+}
+
+
+
+
+
+/*
+EX16) Write a function to remove the "Search" magnifying glass icon
+*/
+
+function removeIcon() {
+    let icon = document.querySelector("svg")
+    icon.remove()
+}
+
+
+/*
           EX17) Write a function to trim just the first 50 characters in the first paragraph for each blog post
+*/
+
+
+
+
+ /*
           EX18) Write a function and attach it to the "Newer" button, to add new Blog Post (just div and title)
           EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
           EX20) Write an alert with the name of the author every time the user hover with the mouse over an author name
       */
+
+
+
+
+
+
+      window.onload = function() {
+addLink()
+changeColor()
+changeBack()
+removeLinks()
+colSize()
+removeIcon()
+}
     </script>
 
 
