@@ -14,18 +14,90 @@
         10 JS Exercises
     --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <style>
+          /*
+
+        EX1) Write a selector to target the h1 in jumbotron
+*/
+
+header + div + div > div > h1 {
+            background-color: aqua;
+        }
+
         /*
-            EX1) Write a selector to target the h1 in jumbotron
-            EX2) Write a selector to target every children of the navbar
-            EX3) Write a selector to target the "continue reading..." inside the jumbotron
-            EX4) Write a selector to target the first blogpost
-            EX5) Write a selector to target the "even" links in the navbar
-            EX6) Write a selector to target the last blog post
-            EX7) Write a selector to target all the li into the first ordered-list in the sidebar ( Archives )
-            EX8) Write a selector to target the second post author
+EX2) Write a selector to target every children of the navbar
+
+*/
+
+        nav > a {
+            background-color: crimson;
+        }
+
+
+        /*
+        EX3) Write a selector to target the "continue reading..." inside the jumbotron
+
+*/
+        div > h1 + p + p > a {
+            background-color: darkcyan;
+        }
+
+        /*
+ EX4) Write a selector to target the first blogpost
+*/
+        main > div > div > h3 + div {
+            background-color: rgb(46, 48, 179);
+        }
+
+        /*
+EX5) Write a selector to target the "even" links in the navbar
+*/
+
+        nav > a:nth-child(2n +1) {
+            background-color: lightcoral;
+        }
+
+/*
+EX6) Write a selector to target the last blog post
+*/
+
+        main > div > div > h3 + div + div + div{
+            background-color: rgb(46, 179, 117);
+        }
+
+        /*
+EX7) Write a selector to target all the li into the first ordered-list in the sidebar ( Archives )
+*/
+
+        aside > div:nth-of-type(2) ol li {
+        
+            background-color: lightskyblue;
+        }
+
+
+        /*
+EX8) Write a selector to target the second post author
+*/
+        main > div > div > div:nth-of-type(2) > h2 + p > a {
+            background-color: lime;
+        }
+        
+
+        /*
             EX9) Write a selector to target the "back to top" link     #### EXTRA Try doing it without targeting the footer element directly
-            EX10) Write a selector to target the footer
-        */
+
+*/
+        main + footer {
+            background-color: red;
+        }
+
+
+        /*
+EX10) Write a selector to target the footer
+*/
+       footer p+p>a{
+            background-color: rgb(0, 0, 0);
+        }
+
     </style>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -55,52 +127,9 @@
             }
         }
 
-        header + div + div > div > h1 {
-            background-color: aqua;
-        }
-
-        nav > a {
-            background-color: crimson;
-        }
-
-        div > h1 + p + p > a {
-            background-color: darkcyan;
-        }
-        main > div > div > h3 + div {
-            background-color: rgb(46, 48, 179);
-        }
-
-        nav > a:nth-child(2n +1) {
-            background-color: lightcoral;
-        }
-
-        main > div > div > h3 + div + div + div{
-            background-color: rgb(46, 179, 117);
-        }
-
-        aside > div:nth-of-type(2) ol li {
-        
-            background-color: lightskyblue;
-        }
-
-        main > div > div > div:nth-of-type(2) > h2 + p > a {
-            background-color: lime;
-        }
-        
-        main + footer {
-            background-color: red;
-        }
-
-       footer p+p>a{
-            background-color: rgb(0, 0, 0);
-        }
-
-        .changeBack{
-            background-color: royalblue!important;
-        }
-
+     
     </style>
-    <link href="./Blog Template · Bootstrap_files/css" rel="stylesheet">
+    <link href="./Blog Template · Bootstrap_files/css.css" rel="stylesheet">
 </head>
 
 <body>
@@ -143,7 +172,7 @@
             </nav>
         </div>
 
-        <div id="jumbotron" class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+        <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
             <div class="col-md-6 px-0">
                 <h1 class="display-4 font-italic">
                     Title of a longer featured blog post
@@ -453,8 +482,8 @@ mainTitle.style.color = "red"
 */
 
 function changeBack() {
-    let jumbotron = document.getElementById("jumbotron")
-    jumbotron.style.backgroundColor="blue"
+    let jumbotron = document.querySelector(".jumbotron")
+    jumbotron.style.backgroundColor="green"
 }
 
 
@@ -482,9 +511,6 @@ function colSize() {
     heading[0].style.width = "10%"
     
 }
-
-
-
 
 
 /*
@@ -560,6 +586,18 @@ function lastBlog() {
 */
 
 
+function alertPeople() {
+
+    let name = document.querySelectorAll(".blog-post-meta a")
+    for (let i=0; i < name.length; i++) {
+        name[i].addEventListener("mouseover", function(e){
+           alert( e.target.innerHTML)
+        })
+    }
+    }
+
+    
+
 
 
 
@@ -573,6 +611,7 @@ colSize()
 removeIcon()
 addBlog()
 removeBlog()
+alertPeople()
 }
     </script>
 
